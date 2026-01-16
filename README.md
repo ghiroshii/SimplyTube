@@ -17,6 +17,7 @@ Com uma interface gráfica moderna construída com **CustomTkinter**, o programa
 - Opção de abrir a pasta de downloads diretamente pelo app
 
 ---
+<img width="797" height="630" alt="programa" src="https://github.com/user-attachments/assets/673a7252-55fa-4037-bdb2-212d0c72d3e0" />
 
 ## 🛠 Tecnologias Utilizadas
 
