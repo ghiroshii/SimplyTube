@@ -34,34 +34,8 @@ Instale as dependências necessárias com:
 
 ```
 pip install customtkinter pytubefix pillow
+
 ```
-##  Como Usar
-
-### Download de um único vídeo
-
-1. Abra o SimplyTube  
-2. Cole o link do YouTube no campo **YouTube Link**
-3. Selecione a pasta onde deseja salvar o arquivo
-4. Escolha o formato desejado:
-   - MP4 para vídeo
-   - M4A para áudio
-   - Ou ambos juntos
-5. Clique no botão de download
-
----
-
-### Download de Playlist
-
-1. Marque a opção **Playlist** no painel lateral  
-2. Cole o link da playlist no campo principal  
-3. Selecione o formato desejado (MP4, M4A ou ambos)
-4. Clique no botão de download  
-5. Aguarde a conclusão do processo
-
-O programa fará o download de todos os vídeos automaticamente.
-
----
-
 ## ▶ Como Executar
 
 
@@ -89,11 +63,34 @@ cd simplytube
 3. Execute o programa:
 
 ```
-python main.py
+python simplytube.py
 ```
 
 ---
+##  Como Usar
 
+### Download de um único vídeo
+
+1. Abra o SimplyTube  
+2. Cole o link do YouTube no campo **YouTube Link**
+3. Selecione a pasta onde deseja salvar o arquivo
+4. Escolha o formato desejado:
+   - MP4 para vídeo
+   - M4A para áudio
+   - Ou ambos juntos
+5. Clique no botão de download
+
+---
+
+### Download de Playlist
+
+1. Marque a opção **Playlist** no painel lateral  
+2. Cole o link da playlist no campo principal  
+3. Selecione o formato desejado (MP4, M4A ou ambos)
+4. Clique no botão de download  
+5. Aguarde a conclusão do processo
+
+O programa fará o download de todos os vídeos automaticamente.
 
 ---
 
