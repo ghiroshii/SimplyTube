@@ -1,4 +1,4 @@
-# 🎬 <img width="798" height="257" alt="title" src="https://github.com/user-attachments/assets/2015d610-fccd-4244-946b-fadccf68fcf2" />
+# <img width="798" height="257" alt="title" src="https://github.com/user-attachments/assets/2015d610-fccd-4244-946b-fadccf68fcf2" />
 
 
 **SimplyTube** é um aplicativo desktop simples e intuitivo para baixar vídeos e áudios do YouTube de forma rápida e prática.  
@@ -48,7 +48,7 @@ pip install customtkinter pytubefix pillow
 
 
 Método 1: Usando o executável (Recomendado para usuários Windows)
-1. Vá até a seção Releases
+1. Vá até a seção [Releases](https://github.com/ghiroshii/SimplyTube/releases/tag/simplytube)
 
 2. Baixe a versão mais recente do SimplyTube.exe
 
