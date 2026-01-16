@@ -76,7 +76,6 @@ class App (customtkinter.CTk):
         self.iconbitmap(resource_path("Assets/icon3.ico"))
 
     def interface(self):
-        # // _Interface Frames_ //
         self.left_frame = customtkinter.CTkFrame(
             self, width=130, height=600, corner_radius=5, border_width=2, fg_color=c6)
         self.left_frame.pack(side='left', padx=0, pady=0)
@@ -92,7 +91,6 @@ class App (customtkinter.CTk):
         self.icon_app = customtkinter.CTkLabel(
             self.left_frame, image=iconapp_image, text='', corner_radius=1)
         self.icon_app.place(x=30, y=20)
-        # // LEFT FRAME
 
         self.playlist_label = customtkinter.CTkLabel(
             self.left_frame, image=playlist_image, text='')
@@ -106,7 +104,6 @@ class App (customtkinter.CTk):
             self.left_frame, text='', fg_color=c7, hover_color=c8, height=10, width=10, border_width=1, image=info_image, command=self.show_info)
         self.info_button.place(x=90, y=569)
 
-        # // _CENTER FRAME_ //
 
         self.link_label = customtkinter.CTkLabel(
             self.center_frame, text='', image=ytlink_image)
@@ -123,27 +120,21 @@ class App (customtkinter.CTk):
         self.path_entry.place(relx=0.5, rely=0.45, anchor='center')
 
         self.select_folder_button = customtkinter.CTkButton(
-            self.center_frame,
-            text='...',
-            width=45,
-            command=self.select_folder,
-            fg_color=c7,
-            hover_color=c8
-        )
+            self.center_frame, text='...', width=45, command=self.select_folder, fg_color=c7, hover_color=c8)
         self.select_folder_button.place(relx=0.85, rely=0.45, anchor='center')
-
-        # __Checkbox__
         self.check_var_mp4 = customtkinter.StringVar(value="on")
         self.check_var_m4a = customtkinter.StringVar(value="off")
         self.check_var_playlist = customtkinter.StringVar(value="off")
 
-        self.mp4_img = customtkinter.CTkLabel(self.center_frame, text='', image=mp4_image)
+        self.mp4_img = customtkinter.CTkLabel(
+            self.center_frame, text='', image=mp4_image)
         self.mp4_img.place(x=245, y=298)
-        self.checkbox_mp4 = customtkinter.CTkCheckBox(self.center_frame, fg_color=c7, hover_color=c8, text="", variable=self.check_var_mp4, onvalue="on", offvalue="off", width=20, height=15)
+        self.checkbox_mp4 = customtkinter.CTkCheckBox(
+            self.center_frame, fg_color=c7, hover_color=c8, text="", variable=self.check_var_mp4, onvalue="on", offvalue="off", width=20, height=15)
         self.checkbox_mp4.place(x=220, y=300)
 
-
-        self.m4a_img = customtkinter.CTkLabel(self.center_frame, text='', image=m4a_image)
+        self.m4a_img = customtkinter.CTkLabel(
+            self.center_frame, text='', image=m4a_image)
         self.m4a_img.place(x=370, y=298)
         self.checkbox_m4a = customtkinter.CTkCheckBox(self.center_frame, font=customtkinter.CTkFont(
             family="System"), fg_color=c7, hover_color=c8, text='', variable=self.check_var_m4a, onvalue="on", offvalue="off", width=20, height=15)
@@ -170,28 +161,23 @@ class App (customtkinter.CTk):
         self.progress_bar.place(relx=0.011, rely=0.96)
         self.progress_bar.set(0)
 
-        # Status
         self.download_status = customtkinter.CTkLabel(
             self.center_frame, text="Ready to download :) ", text_color='white')
         self.download_status.place(relx=0.49, rely=0.93, anchor="center")
-# // INFO
 
     def show_info(self):
         messagebox.showinfo("Thanks for downloading",
                             "\nCreated by Gabriel Sudo_ \n\ngithub.com/ghiroshii")
-# // FOLDER
 
     def select_folder(self):
         folder_selected = filedialog.askdirectory()
 
         if folder_selected:
-            # Limpa o conteúdo atual
             self.path_entry.delete(0, 'end')
-            # Insere o novo caminho selecionado
             self.path_entry.insert(0, folder_selected)
 
     def open_folder(self):
-        # LEMBRETE DE TRABALHAR MELHOR NISSO DEPOIS
+        # lembrete: trablhar melhor nisso dps, colocar mais funções baseadas no feedback dos mlk
         folder_path = self.path_entry.get()
 
         if os.path.exists(folder_path):
@@ -207,14 +193,11 @@ class App (customtkinter.CTk):
         if self.check_var_playlist.get() == "off":
             self.download_threading()
 
-            
     def clear_cacher(self):
         reset_cache()
         self.download_status.configure(text="Ready to download again :) ")
         messagebox.showinfo(
             "Complete", "The cache was successfully cleared :)")
-
-# // ON PROGRESS
 
     def on_progress(self, stream, chunk, bytes_remaining):
         total_size = stream.filesize
@@ -251,23 +234,19 @@ class App (customtkinter.CTk):
             self.dw_progress = True
 
             if self.check_var_mp4.get() == "on" and self.check_var_m4a.get() == "on":
-                # guardar link do youtube primeiro
                 self.dw_progress = True
                 yt = YouTube(mylink, on_progress_callback=self.on_progress)
-                # Mudar status do download, primeiro baixar o mp4 e depois o m4a
                 self.download_status.configure(
                     text=f"Downloading MP4: {yt.title}")
                 ys = yt.streams.get_highest_resolution()
                 ys.download(output_path=mypath)
 
-                # M4A
                 self.download_status.configure(
                     text=f"Downloading MPA: {yt.title}")
                 ys = yt.streams.get_audio_only()
                 ys.download(output_path=mypath)
 
             elif self.check_var_mp4.get() == "on":
-                #
                 self.dw_progress = True
                 yt = YouTube(mylink, on_progress_callback=self.on_progress)
                 self.download_status.configure(
@@ -308,13 +287,10 @@ class App (customtkinter.CTk):
         mylink = self.link_entry.get()
 
         if mylink:
-            # Limpa o conteúdo atual
             self.link_entry.delete(0, 'end')
             self.download_status.configure(text="Ready to download again :) ")
         messagebox.showinfo(
             "Complete", "The link field and cache have been cleared. :)")
-
-    # // PLAYLIST #
 
     def on_progress_playlist(self, stream, chunk, bytes_remaining):
         total_size = stream.filesize
@@ -325,7 +301,6 @@ class App (customtkinter.CTk):
             text=f"Downloading {stream.default_filename[:30]}... {percentage:.1f}%")
         self.update_idletasks()
 
-    # playlist threading
     def download_threading_playlist(self):
         if self.dw_progress:
             return
@@ -351,7 +326,6 @@ class App (customtkinter.CTk):
                 return
 
             if self.check_var_mp4.get() == "on" and self.check_var_m4a.get() == "on":
-                # Baixar MP4 primeiro
                 self.download_status.configure(
                     text=f"Downloading Playlist MP4 ({total_videos} videos)")
                 self.update_idletasks()
@@ -368,7 +342,6 @@ class App (customtkinter.CTk):
                         print(f"Error downloading video {i+1}: {str(e)}")
                         continue
 
-                # Depois baixar M4A
                 self.download_status.configure(
                     text=f"Downloading Playlist M4A ({total_videos} videos)")
                 self.update_idletasks()
@@ -430,6 +403,7 @@ class App (customtkinter.CTk):
 
         self.download_status.configure(text="Complete")
         messagebox.showinfo("Complete", "Playlist download complete")
+
 
 app = App()
 app.mainloop()
