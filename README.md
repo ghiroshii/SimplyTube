@@ -1,4 +1,5 @@
-# 🎬 SimplyTube
+# 🎬 <img width="798" height="257" alt="title" src="https://github.com/user-attachments/assets/2015d610-fccd-4244-946b-fadccf68fcf2" />
+
 
 **SimplyTube** é um aplicativo desktop simples e intuitivo para baixar vídeos e áudios do YouTube de forma rápida e prática.  
 Com uma interface gráfica moderna construída com **CustomTkinter**, o programa permite realizar downloads individuais ou de playlists inteiras em poucos cliques.
