@@ -51,7 +51,7 @@ Método 2: Executar a partir do código fonte
 1. Clone este repositório:
 
 ```
-git clone https://github.com/seu-usuario/simplytube.git
+git clone [https://github.com/seu-usuario/simplytube.git](https://github.com/ghiroshii/SimplyTube)
 ```
 
 2. Entre na pasta do projeto:
